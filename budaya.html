@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budaya Dusun Soti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c786c;
+            --secondary: #004445;
+            --accent: #f8b400;
+            --light: #faf5e4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(rgba(44, 120, 108, 0.8), rgba(44, 120, 108, 0.8)), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            padding: 5rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--secondary);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .budaya-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .budaya-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .budaya-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .budaya-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .budaya-video {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        /* Video Responsive Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .budaya-info {
+            padding: 1.5rem;
+        }
+
+        .budaya-info h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .budaya-info .origin {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-section {
+            background-color: var(--light);
+            padding: 4rem 0;
+        }
+        
+        .highlight-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .highlight-card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-links.mobile-open {
+            display: flex !important;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--primary);
+            padding: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links.mobile-open li {
+            margin: 0.5rem 0;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            nav {
+                position: relative;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .budaya-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .video-container {
+                padding-bottom: 56.25%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Dusun Soti</div>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="potensi.html">Potensi</a></li>
+                    <li><a href="umkm.html">UMKM</a></li>
+                    <li><a href="budaya.html">Budaya</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hero">
+                <h1>Budaya Dusun Soti</h1>
+                <p>Kekayaan budaya tradisional yang masih lestari dan menjadi identitas masyarakat Dusun Soti</p>
+            </div>
+        </div>
+    </header>
+    
+    <section class="highlight-section">
+        <div class="container">
+            <div class="highlight-card">
+                <i class="fas fa-heart"></i>
+                <h2>Warisan Budaya yang Terjaga</h2>
+                <p>Dusun Soti memiliki berbagai tradisi budaya yang telah diwariskan turun-temurun dan masih dijaga kelestariannya hingga saat ini. Setiap pertunjukan budaya tidak hanya sebagai hiburan, tetapi juga sebagai sarana edukasi dan pelestarian nilai-nilai luhur nenek moyang.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container">
+        <div class="section-title">
+            <h2>Kesenian Tradisional</h2>
+        </div>
+        
+        <div class="budaya-grid">
+            <div class="budaya-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/YLymu0wthlg" title="Tarian Soreng Dusun Soti" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="budaya-info">
+                    <h3>Soreng</h3>
+                    <p class="origin">Tarian Tradisional Kepahlawanan</p>
+                    <p>Tarian ini menggambarkan kisah kepahlawanan para prajurit kerajaan, terutama yang setia kepada Raja atau tokoh-tokoh seperti Raden Wijaya dan pasukan Majapahit. Gerakan tarian yang dinamis dan penuh semangat menceritakan tentang keberanian dan loyalitas para prajurit.</p>
+                </div>
+            </div>
+            
+            <div class="budaya-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/xVWCQmZwxgw" title="Warokan Dusun Soti" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="budaya-info">
+                    <h3>Warokan</h3>
+                    <p class="origin">Tradisi Spiritual dan Kekuatan Batin</p>
+                    <p>Seorang Warok (pelaku tradisi warokan) adalah tokoh yang memiliki ilmu kanuragan (kekuatan supranatural), kharisma tinggi, dan dianggap sebagai penjaga moral dan pelindung masyarakat. Warokan melambangkan kekuatan spiritual dan kebijaksanaan hidup.</p>
+                </div>
+            </div>
+            
+            <div class="budaya-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/yWSW-SUrzQ0" title="Topeng Ireng Dusun Soti" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="budaya-info">
+                    <h3>Topeng Ireng</h3>
+                    <p class="origin">Seni Tari, Pencak Silat, dan Religi</p>
+                    <p>Tari Topeng Ireng adalah tarian tradisional yang berasal dari daerah Magelang, Jawa Tengah. Tarian ini merupakan hasil perpaduan antara seni tari, pencak silat, dan unsur religi. Penari menggunakan topeng berwarna hitam yang melambangkan kekhusyukan dan kekuatan spiritual.</p>
+                </div>
+            </div>
+            
+            <div class="budaya-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/xK0D1h_Q-rY" title="Jaranan Dusun Soti" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="budaya-info">
+                    <h3>Jaranan</h3>
+                    <p class="origin">Tarian Kuda Kepang Tradisional</p>
+                    <p>Tarian ini menggunakan properti utama berupa kuda tiruan (biasanya terbuat dari anyaman bambu atau kulit) yang disebut jaran kepang. Jaranan tidak hanya sebagai hiburan, tetapi juga memiliki makna spiritual dan sering dikaitkan dengan ritual penyembuhan dan kesuburan.</p>
+                </div>
+            </div>
+            
+            <div class="budaya-card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/IPTJFRF9XqQ" title="Tari Kebluk Dusun Soti" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="budaya-info">
+                    <h3>Tari Kebluk</h3>
+                    <p class="origin">Kesenian Rakyat Pedesaan</p>
+                    <p>Tari Kebluk adalah tarian tradisional yang berasal dari Jawa Tengah, khususnya daerah Magelang dan sekitarnya. Tarian ini merupakan bagian dari kesenian rakyat yang berkembang di kalangan masyarakat pedesaan dan biasanya dipentaskan dalam acara syukuran, sedekah bumi, atau hajatan.</p>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+    
+    <section class="highlight-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Filosofi Budaya</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="highlight-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Kebersamaan</h3>
+                    <p>Setiap pertunjukan budaya melibatkan seluruh masyarakat, dari persiapan hingga pelaksanaan, mempererat tali persaudaraan dan gotong royong.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Harmonisasi</h3>
+                    <p>Budaya tradisional mengajarkan keseimbangan antara manusia dengan alam, manusia dengan sesama, dan manusia dengan Tuhan.</p>
+                </div>
+                
+                <div class="highlight-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Pendidikan</h3>
+                    <p>Melalui cerita dan gerakan dalam setiap pertunjukan, nilai-nilai moral dan budi pekerti diajarkan kepada generasi muda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+  
+    
+    <footer>
+        <div class="container">
+            <div class="logo">Dusun Soti</div>
+            <p>Dusun yang Harmonis, Mandiri, dan Berbudaya</p>
+            
+            <ul class="footer-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="potensi.html">Potensi</a></li>
+                <li><a href="umkm.html">UMKM</a></li>
+                <li><a href="budaya.html">Budaya</a></li>
+            </ul>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Dusun Soti. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('mobile-open');
+            
+            const toggleButton = document.querySelector('.mobile-menu-toggle i');
+            if (navLinks.classList.contains('mobile-open')) {
+                toggleButton.classList.remove('fa-bars');
+                toggleButton.classList.add('fa-times');
+            } else {
+                toggleButton.classList.remove('fa-times');
+                toggleButton.classList.add('fa-bars');
+            }
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.getElementById('navLinks');
+                const toggleButton = document.querySelector('.mobile-menu-toggle i');
+                navLinks.classList.remove('mobile-open');
+                toggleButton.classList.remove('fa-times');
+                toggleButton.classList.add('fa-bars');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(e.target) && navLinks.classList.contains('mobile-open')) {
+                const toggleButton = document.querySelector('.mobile-menu-toggle i');
+                navLinks.classList.remove('mobile-open');
+                toggleButton.classList.remove('fa-times');
+                toggleButton.classList.add('fa-bars');
+            }
+        });
+    </script>
+</body>
+</html>
