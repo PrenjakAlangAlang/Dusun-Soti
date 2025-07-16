@@ -528,6 +528,124 @@
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
         }
+        /* Gaya Struktur Organisasi */
+.org-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.org-level {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.org-level.horizontal {
+    justify-content: space-around;
+    margin: 1rem 0;
+}
+
+.org-node {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 220px;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+    border-top: 3px solid var(--accent);
+}
+
+.org-node:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.org-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: var(--primary);
+    font-size: 1.5rem;
+    border: 2px solid var(--accent);
+}
+
+.org-details h3 {
+    font-size: 1.1rem;
+    color: var(--secondary);
+    margin-bottom: 0.3rem;
+}
+
+.org-details p {
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.org-connector {
+    background-color: #ddd;
+    position: relative;
+}
+
+.org-connector.vertical {
+    width: 2px;
+    height: 40px;
+}
+
+.org-connector.horizontal {
+    height: 2px;
+    width: 100%;
+}
+
+/* Responsif untuk tablet */
+@media (max-width: 992px) {
+    .org-level.horizontal {
+        flex-wrap: wrap;
+    }
+    
+    .org-node {
+        width: 180px;
+        margin: 0.5rem;
+    }
+}
+
+/* Responsif untuk mobile */
+@media (max-width: 768px) {
+    .org-chart {
+        align-items: flex-start;
+    }
+    
+    .org-level {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .org-level.horizontal {
+        flex-direction: column;
+    }
+    
+    .org-node {
+        width: 100%;
+        max-width: 250px;
+        margin: 0.5rem 0;
+    }
+    
+    .org-connector.vertical {
+        height: 20px;
+    }
+    
+    .org-connector.horizontal {
+        display: none;
+    }
+}
 
         @media (max-width: 768px) {
             .mobile-menu-toggle {
@@ -774,57 +892,99 @@ Perkembangan kepemimpinan di tingkat RT juga mengalami pergantian seiring waktu:
         <p>Peta di atas menunjukkan wilayah Dusun Soti RT 14</p>
     </section>
     
-    <section id="pimpinan" class="container">
-        <div class="section-title">
-            <h2>Pimpinan Dusun</h2>
-        </div>
-        <div class="leader-cards">
-            <div class="leader-card">
-                <div class="leader-img" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80');"></div>
-                <div class="leader-info">
+    <section id="struktur-organisasi" class="container">
+    <div class="section-title">
+        <h2>Struktur Organisasi Dusun Soti</h2>
+        <p>Hierarki kepemimpinan dan kelembagaan di Dusun Soti</p>
+    </div>
+
+    <div class="org-chart">
+        <!-- Level 1 - Kepala Dusun -->
+        <div class="org-level">
+            <div class="org-node">
+                <div class="org-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="org-details">
                     <h3>Bapak Achmad Nur Yahya</h3>
-                    <p class="position">Ketua Dusun Soti</p>
-                    <p>Memimpin Dusun Soti sejak tahun 2018 dengan visi membangun dusun yang mandiri dan sejahtera.</p>
-                </div>
-            </div>
-            
-            <div class="leader-card">
-                <div class="leader-img" style="background-image: url('https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80');"></div>
-                <div class="leader-info">
-                    <h3>Bapak Sarwoko</h3>
-                    <p class="position">Ketua RT 14</p>
-                    <p>Memimpin wilayah RT 01 yang mencakup area barat Dusun Soti dengan fokus pada pengembangan pertanian.</p>
-                </div>
-            </div>
-            
-            <div class="leader-card">
-                <div class="leader-img" style="background-image: url('https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80');"></div>
-                <div class="leader-info">
-                    <h3>Bapak Kusnan</h3>
-                    <p class="position">Ketua RT 15</p>
-                    <p>Memimpin wilayah RT 02 di area timur dengan program unggulan peternakan sapi dan kambing.</p>
-                </div>
-            </div>
-            
-            <div class="leader-card">
-                <div class="leader-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80');"></div>
-                <div class="leader-info">
-                    <h3>Bapak Wahadi</h3>
-                    <p class="position">Ketua RT 16</p>
-                    <p>Memimpin RT 03 di wilayah utara dengan fokus pada pengembangan kerajinan tangan masyarakat.</p>
-                </div>
-            </div>
-            
-            <div class="leader-card">
-                <div class="leader-img" style="background-image: url('https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80');"></div>
-                <div class="leader-info">
-                    <h3>Bapak Muhroni</h3>
-                    <p class="position">Ketua RT 17</p>
-                    <p>Memimpin RT 04 di wilayah selatan dengan program pengembangan wisata alam dan kuliner.</p>
+                    <p>Kepala Dusun</p>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Konektor ke bawah -->
+        <div class="org-connector vertical"></div>
+
+        <!-- Level 2 - RW dan Imam -->
+        <div class="org-level horizontal">
+            <div class="org-node">
+                <div class="org-icon">
+                    <i class="fas fa-user-friends"></i>
+                </div>
+                <div class="org-details">
+                    <h3>Bapak Haryadi</h3>
+                    <p>Ketua RW</p>
+                </div>
+            </div>
+
+            <div class="org-node">
+                <div class="org-icon">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <div class="org-details">
+                    <h3>Bapak Sukamto</h3>
+                    <p>Imam Mudin</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Konektor ke bawah -->
+        <div class="org-connector vertical"></div>
+
+        <!-- Level 3 - RT -->
+        <div class="org-level horizontal">
+            <div class="org-node">
+                <div class="org-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="org-details">
+                    <h3>Bapak Sarwoko</h3>
+                    <p>Ketua RT 14</p>
+                </div>
+            </div>
+
+            <div class="org-node">
+                <div class="org-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="org-details">
+                    <h3>Bapak Kusnan</h3>
+                    <p>Ketua RT 15</p>
+                </div>
+            </div>
+
+            <div class="org-node">
+                <div class="org-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="org-details">
+                    <h3>Bapak Wahadi</h3>
+                    <p>Ketua RT 16</p>
+                </div>
+            </div>
+
+            <div class="org-node">
+                <div class="org-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="org-details">
+                    <h3>Bapak Muhroni</h3>
+                    <p>Ketua RT 17</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     
     <section id="potensi" class="container">
         <div class="section-title">
