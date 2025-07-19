@@ -6,341 +6,22 @@
     <title>UMKM Dusun Soti</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <meta name="google-site-verification" content="HC33mZeak2iZBpcoZHsqutlo0yrzhcntqUJ58Ert4GU" />
-    <style>
-        :root {
-            --primary: #2c786c;
-            --secondary: #004445;
-            --accent: #f8b400;
-            --light: #faf5e4;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #f9f9f9;
-        }
-        
-        header {
-            background: linear-gradient(rgba(44, 120, 108, 0.8), rgba(44, 120, 108, 0.8)), 
-                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            position: relative;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        .hero {
-            padding: 5rem 0;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--secondary);
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-wa {
-            background-color: #25D366;
-            color: white;
-            display: inline-flex;
-            align-items: center;
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .btn-wa i {
-            margin-right: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .btn-wa:hover {
-            background-color: #128C7E;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        section {
-            padding: 4rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--secondary);
-        }
-        
-        .section-title h2 {
-            font-size: 2.2rem;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 3px;
-            background-color: var(--accent);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .umkm-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .umkm-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .umkm-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .umkm-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .umkm-info {
-            padding: 1.5rem;
-        }
-
-        .umkm-info h3 {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .umkm-info p.price {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .category-filter {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            background-color: white;
-            color: var(--secondary);
-            border: 2px solid var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .filter-btn:hover,
-        .filter-btn.active {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .nav-links.mobile-open {
-            display: flex !important;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background-color: var(--primary);
-            padding: 1rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-links.mobile-open li {
-            margin: 0.5rem 0;
-        }
-        
-        footer {
-            background-color: var(--secondary);
-            color: white;
-            padding: 3rem 0 1rem;
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-links li {
-            margin: 0 1rem;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        
-        .copyright {
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            nav {
-                position: relative;
-            }
-            
-            .hero {
-                padding: 3rem 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .umkm-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .category-filter {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
-                padding-top: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .filter-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    <meta name="description" content="UMKM Dusun Soti menawarkan produk berkualitas seperti Tempe Gembus, Jeruk Rizky, Anggrek, dan jasa penjahit serta laundry. Hubungi via WhatsApp untuk pemesanan.">
+    <meta name="keywords" content="UMKM Dusun Soti, Tempe Gembus, Jeruk Rizky, Anggrek, Penjahit, Laundry, Produk Lokal">
+    <meta name="author" content="KKN UPNVYK AA 83 032">
+    
+    <!-- Open Graph untuk social media -->
+    <meta property="og:title" content="UMKM Dusun Soti - Produk Berkualitas">
+    <meta property="og:description" content="Produk-produk berkualitas dari Usaha Mikro Kecil dan Menengah Dusun Soti">
+    <meta property="og:image" content="https://www.dusun-soti.com/images/tempegembus.jpg">
+    <meta property="og:url" content="https://www.dusun-soti.com/umkm.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UMKM Dusun Soti">
+    <meta name="twitter:description" content="Produk berkualitas dari UMKM Dusun Soti">
 </head>
 <body>
     <header>
@@ -384,11 +65,12 @@
                     <h3>Tempe Gembus</h3>
                     <p class="price">Rp 250-1.000/bungkus</p>
                     <p>Tempe gembus adalah tempe yang dibuat dari ampas tahu—limbah padat dari proses pembuatan tahu—yang kemudian difermentasi menggunakan ragi tempe</p>
-                    <a href="https://wa.me/6281234567890?text=Saya%20ingin%20memesan%20Tempe%20Gembus" class="btn-wa">
+                    <a href="https://wa.me/62882005435834?text=Saya%20ingin%20memesan%20Tempe%20Gembus" class="btn-wa">
                         <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
                     </a>
                 </div>
             </div>
+            
             <div class="umkm-card" data-category="makanan">
                 <div class="umkm-img" style="background-image: url('images/jeruk.jpg');"></div>
                 <div class="umkm-info">
@@ -419,7 +101,6 @@
                 <div class="umkm-img" style="background-image: url('images/pramono.jpg');"></div>
                 <div class="umkm-info">
                     <h3>Anggrek</h3>
-                    
                     <p>Anggrek adalah salah satu jenis tanaman berbunga dari famili Orchidaceae yang terkenal karena keindahan dan keunikan bunganya.</p>
                     <a href="https://wa.me/6285729603442?text=Saya%20ingin%20memesan%20Anggrek" class="btn-wa">
                         <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
@@ -438,18 +119,8 @@
                     </a>
                 </div>
             </div>
-            
-            
-            
-        
-            
-            
-            
-            
-            
         </div>
     </section>
-    
     
     <footer>
         <div class="container">
