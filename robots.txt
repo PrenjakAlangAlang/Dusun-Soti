@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.dusun-soti.com/sitemap.xml
+
+# Allow indexing of all content
+Allow: /index.html
+Allow: /potensi.html
+Allow: /umkm.html
+Allow: /budaya.html
+Allow: /images/
+
+# Disallow unnecessary files (if any)
+Disallow: /private/
+Disallow: /*.log$
