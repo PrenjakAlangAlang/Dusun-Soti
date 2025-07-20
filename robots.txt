@@ -2,15 +2,38 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.dusun-soti.com/sitemap.xml
+Sitemap: https://dusun-soti.vercel.app/sitemap.xml
 
 # Allow indexing of all content
 Allow: /index.html
 Allow: /potensi.html
 Allow: /umkm.html
 Allow: /budaya.html
+Allow: /css/
 Allow: /images/
 
-# Disallow unnecessary files (if any)
+# Allow crawling of static assets
+Allow: *.css
+Allow: *.js
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.png
+Allow: *.webp
+Allow: *.svg
+Allow: *.ico
+
+# Disallow Vercel system files
+Disallow: /.vercel/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /vercel.json
+
+# Disallow unnecessary files
 Disallow: /private/
 Disallow: /*.log$
+Disallow: /node_modules/
+Disallow: /package.json
+Disallow: /package-lock.json
+
+# Crawl delay (optional, untuk mengurangi beban server)
+Crawl-delay: 1
