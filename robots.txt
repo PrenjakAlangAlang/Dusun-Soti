@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://dusun-soti.vercel.app/sitemap.xml
+Sitemap: https://dusunsoti.vercel.app/sitemap.xml
 
 # Allow indexing of all content
 Allow: /index.html
